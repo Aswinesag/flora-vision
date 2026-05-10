@@ -1,14 +1,20 @@
 import Image from "next/image";
-import { asset, type Plant } from "../data";
+import { img, type Plant } from "../data";
 import { Button, CartButton } from "./Button";
 
 export function PlantCard({ plant }: { plant: Plant }) {
+  const card =
+    "group relative mt-40 flex min-h-[470px] flex-col overflow-visible rounded-[34px] " +
+    "border border-white/15 bg-white/[0.045] px-8 pb-8 pt-52 text-white " +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_28px_70px_rgba(0,0,0,0.28)] " +
+    "backdrop-blur-md transition hover:-translate-y-2 hover:bg-white/[0.075]";
+
   return (
-    <article className="group relative mt-40 flex min-h-[470px] flex-col overflow-visible rounded-[34px] border border-white/15 bg-white/[0.045] px-8 pb-8 pt-52 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_28px_70px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:-translate-y-2 hover:bg-white/[0.075]">
+    <article className={card}>
       <div className="pointer-events-none absolute inset-0 -z-10 rounded-[34px] bg-gradient-to-br from-white/[0.08] via-white/[0.015] to-black/[0.08]" />
       <div className="absolute -top-40 left-1/2 z-10 h-96 w-[92%] -translate-x-1/2">
         <Image
-          src={asset(plant.image)}
+          src={img(plant.image)}
           alt={plant.name}
           fill
           sizes="(max-width: 768px) 90vw, 33vw"
@@ -34,18 +40,22 @@ export function TrendPlantCard({
   image: string;
   price: string;
 }) {
+  const imageSide = reverse
+    ? "md:[&>div:first-child]:order-2 md:[&>div:first-child]:-mr-10"
+    : "md:[&>div:first-child]:-ml-10";
+
+  const card =
+    "relative mt-20 grid min-h-[420px] items-center overflow-visible rounded-[56px] " +
+    "border border-white/25 bg-white/[0.035] px-8 py-10 " +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_35px_90px_rgba(0,0,0,0.28)] " +
+    "backdrop-blur-sm md:grid-cols-2 md:px-16";
+
   return (
-    <article
-      className={`relative mt-20 grid min-h-[420px] items-center overflow-visible rounded-[56px] border border-white/25 bg-white/[0.035] px-8 py-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_35px_90px_rgba(0,0,0,0.28)] backdrop-blur-sm md:grid-cols-2 md:px-16 ${
-        reverse
-          ? "md:[&>div:first-child]:order-2 md:[&>div:first-child]:-mr-10"
-          : "md:[&>div:first-child]:-ml-10"
-      }`}
-    >
+    <article className={`${card} ${imageSide}`}>
       <div className="pointer-events-none absolute inset-0 -z-10 rounded-[56px] bg-gradient-to-br from-white/[0.08] via-white/[0.01] to-black/[0.08]" />
       <div className="relative z-10 h-80 -translate-y-16 md:h-[480px] md:-translate-y-20">
         <Image
-          src={asset(image)}
+          src={img(image)}
           alt="Desk decoration plant"
           fill
           sizes="(max-width: 768px) 90vw, 45vw"

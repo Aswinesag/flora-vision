@@ -1,4 +1,4 @@
-export const asset = (name: string) => `/figma-assets/${name}`;
+export const img = (name: string) => `/figma-assets/${name}`;
 
 export const navItems = ["Home", "Plants Type", "More", "Contact"];
 
@@ -9,7 +9,7 @@ export type Plant = {
   image: string;
 };
 
-export const topSellingPlants: Plant[] = [
+export const plants: Plant[] = [
   {
     name: "Aglaonema plant",
     text: "The Aglaonema plant, commonly known as Chinese Evergreen, is known for attractive foliage and easy care.",
@@ -48,13 +48,13 @@ export const topSellingPlants: Plant[] = [
   },
 ];
 
-export type Testimonial = {
+export type Review = {
   name: string;
   image: string;
   text: string;
 };
 
-export const reviews: Testimonial[] = [
+export const reviews: Review[] = [
   {
     name: "Shelly Russel",
     image: "review-1.png",

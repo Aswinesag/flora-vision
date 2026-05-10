@@ -1,9 +1,14 @@
 import Image from "next/image";
-import { asset } from "../data";
+import { img } from "../data";
 import { Button } from "./Button";
 import { Stars } from "./Stars";
 
 export function HeroBanner() {
+  const heroCard =
+    "relative mt-24 min-h-[620px] overflow-visible rounded-[44px] border border-white/25 " +
+    "bg-white/[0.04] p-10 pt-72 backdrop-blur-sm md:mt-0 " +
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_35px_90px_rgba(0,0,0,0.3)]";
+
   return (
     <section className="mx-auto grid min-h-[860px] max-w-[1640px] items-center gap-12 px-5 pb-20 pt-20 md:grid-cols-[1fr_560px] md:px-10">
       <div>
@@ -29,7 +34,7 @@ export function HeroBanner() {
         <aside className="mt-32 max-w-md rounded-[45px] border border-white/50 bg-white/[0.06] p-7 shadow-2xl backdrop-blur-md">
           <div className="flex items-center gap-7">
             <Image
-              src={asset("avatar-ronnie.png")}
+              src={img("avatar-ronnie.png")}
               alt="Ronnie Hamill"
               width={64}
               height={64}
@@ -47,11 +52,11 @@ export function HeroBanner() {
         </aside>
       </div>
 
-      <article className="relative mt-24 min-h-[620px] overflow-visible rounded-[44px] border border-white/25 bg-white/[0.04] p-10 pt-72 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_35px_90px_rgba(0,0,0,0.3)] backdrop-blur-sm md:mt-0">
+      <article className={heroCard}>
         <div className="pointer-events-none absolute inset-0 -z-10 rounded-[44px] bg-gradient-to-br from-white/[0.08] via-white/[0.015] to-black/[0.08]" />
         <div className="absolute -top-28 left-1/2 h-[430px] w-[88%] -translate-x-1/2">
           <Image
-            src={asset("hero-plant.png")}
+            src={img("hero-plant.png")}
             alt="Aglaonema plant"
             fill
             priority

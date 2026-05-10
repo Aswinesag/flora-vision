@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { asset } from "../data";
+import { img } from "../data";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -8,11 +8,15 @@ type ButtonProps = {
 };
 
 export function Button({ children, className = "", type = "button" }: ButtonProps) {
+  const classes = [
+    "h-12 rounded-xl border-2 border-white/70 px-8",
+    "text-base font-medium text-white/90",
+    "transition hover:bg-white/15",
+    className,
+  ].join(" ");
+
   return (
-    <button
-      type={type}
-      className={`h-12 rounded-xl border-2 border-white/70 px-8 text-base font-medium text-white/90 transition hover:bg-white/15 ${className}`}
-    >
+    <button type={type} className={classes}>
       {children}
     </button>
   );
@@ -25,7 +29,7 @@ export function CartButton({ label }: { label: string }) {
       aria-label={label}
       className="grid size-12 place-items-center rounded-xl border border-white/55 bg-white/5 transition hover:bg-white/15"
     >
-      <Image src={asset("bag.png")} alt="" width={24} height={24} className="opacity-80" />
+      <Image src={img("bag.png")} alt="" width={24} height={24} className="opacity-80" />
     </button>
   );
 }

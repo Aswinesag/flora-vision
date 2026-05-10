@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Amatic_SC } from "next/font/google";
-import { asset, navItems } from "../data";
+import { img, navItems } from "../data";
 
 const amatic = Amatic_SC({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-[1640px] items-center justify-between px-5 py-8 md:px-10">
         <a href="#" className="flex items-center gap-3" aria-label="FloraVision home">
           <Image
-            src={asset("logo-plant.png")}
+            src={img("logo-plant.png")}
             alt=""
             width={48}
             height={48}
@@ -34,10 +34,10 @@ export function Navbar() {
 
         <div className={`${amatic.className} flex items-center gap-6`}>
           <button type="button" aria-label="Search" className="hidden md:block">
-            <Image src={asset("search.png")} alt="" width={26} height={26} />
+            <Image src={img("search.png")} alt="" width={26} height={26} />
           </button>
           <button type="button" aria-label="Cart" className="hidden md:block">
-            <Image src={asset("bag.png")} alt="" width={26} height={26} />
+            <Image src={img("bag.png")} alt="" width={26} height={26} />
           </button>
           <button type="button" aria-label="Menu" className="space-y-2">
             <span className="block h-0.5 w-8 bg-white" />

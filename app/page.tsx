@@ -6,14 +6,19 @@ import { Navbar } from "./components/Navbar";
 import { PlantCard, TrendPlantCard } from "./components/PlantCard";
 import { SectionTitle } from "./components/SectionTitle";
 import { TestimonialCard } from "./components/TestimonialCard";
-import { asset, reviews, topSellingPlants } from "./data";
+import { img, plants, reviews } from "./data";
 
 export default function Home() {
+  const o2Card =
+    "relative mt-32 min-h-[520px] overflow-visible rounded-[56px] border border-white/25 " +
+    "bg-white/[0.04] p-8 pt-72 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_30px_80px_rgba(0,0,0,0.3)] " +
+    "backdrop-blur-md md:mt-40 md:flex md:items-center md:p-16 md:pl-[520px] md:pr-24";
+
   return (
     <div className="min-h-screen overflow-hidden bg-[#101a0f] text-white">
       <div className="absolute inset-x-0 top-0 h-[2450px]">
         <Image
-          src={asset("hero-bg.png")}
+          src={img("hero-bg.png")}
           alt=""
           fill
           priority
@@ -39,7 +44,7 @@ export default function Home() {
         <section className="mx-auto max-w-[1640px] px-5 py-20 md:px-10">
           <SectionTitle>Our Top Selling Plants</SectionTitle>
           <div className="grid gap-x-8 gap-y-20 pt-16 md:grid-cols-2 xl:grid-cols-3">
-            {topSellingPlants.map((plant) => (
+            {plants.map((plant) => (
               <PlantCard key={plant.name} plant={plant} />
             ))}
           </div>
@@ -56,11 +61,11 @@ export default function Home() {
 
         <section className="mx-auto max-w-[1640px] px-5 py-24 md:px-10">
           <SectionTitle>Our Best o2</SectionTitle>
-          <article className="relative mt-32 min-h-[520px] overflow-visible rounded-[56px] border border-white/25 bg-white/[0.04] p-8 pt-72 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_30px_80px_rgba(0,0,0,0.3)] backdrop-blur-md md:mt-40 md:flex md:items-center md:p-16 md:pl-[520px] md:pr-24">
+          <article className={o2Card}>
             <div className="pointer-events-none absolute inset-0 -z-10 rounded-[56px] bg-gradient-to-br from-white/[0.08] via-white/[0.015] to-black/[0.08]" />
             <div className="absolute -left-8 -top-36 h-[520px] w-[620px] max-w-[95vw] md:-left-14 md:-top-44 md:h-[680px] md:w-[760px]">
               <Image
-                src={asset("hero-plant.png")}
+                src={img("hero-plant.png")}
                 alt="Oxygen plant collection"
                 fill
                 sizes="(max-width: 768px) 90vw, 45vw"

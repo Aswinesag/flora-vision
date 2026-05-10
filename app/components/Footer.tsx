@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { asset } from "../data";
+import { img } from "../data";
 
 export function Footer() {
   return (
     <footer className="relative z-10 mx-auto grid max-w-[1640px] gap-12 px-5 py-24 text-white md:grid-cols-[1.2fr_0.7fr_1.1fr] md:px-10">
       <div>
         <div className="flex items-center gap-5">
-          <Image src={asset("logo-plant.png")} alt="" width={78} height={78} />
+          <Image src={img("logo-plant.png")} alt="" width={78} height={78} />
           <span className="text-4xl font-black text-white/80">FloraVision.</span>
         </div>
         <p className="mt-10 max-w-xl text-2xl leading-10">
