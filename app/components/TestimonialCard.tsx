@@ -4,8 +4,8 @@ import { Stars } from "./Stars";
 
 export function TestimonialCard({ review }: { review: Testimonial }) {
   return (
-    <article className="min-h-72 rounded-[32px] border border-white/15 bg-white/[0.07] p-9 shadow-2xl backdrop-blur-xl">
-      <div className="flex items-center gap-7">
+    <article className="relative min-h-72 overflow-hidden rounded-b-[34px] rounded-t-[38px] border border-white/15 bg-white/[0.065] p-9 pt-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_26px_60px_rgba(0,0,0,0.28)] backdrop-blur-xl before:absolute before:-left-[8%] before:-right-[8%] before:-top-8 before:h-20 before:rounded-b-[50%] before:border-b before:border-white/15 before:bg-[#101a0f] after:pointer-events-none after:absolute after:inset-0 after:bg-gradient-to-br after:from-white/[0.07] after:via-white/[0.015] after:to-black/[0.08]">
+      <div className="relative z-10 flex items-center gap-7">
         <Image
           src={asset(review.image)}
           alt={review.name}
@@ -18,7 +18,7 @@ export function TestimonialCard({ review }: { review: Testimonial }) {
           <Stars />
         </div>
       </div>
-      <p className="mt-9 text-xl leading-8 text-white/70">{review.text}</p>
+      <p className="relative z-10 mt-9 text-xl leading-8 text-white/70">{review.text}</p>
     </article>
   );
 }
