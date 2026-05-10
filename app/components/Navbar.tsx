@@ -1,0 +1,42 @@
+import Image from "next/image";
+import { asset, navItems } from "../data";
+
+export function Navbar() {
+  return (
+    <header className="relative z-20">
+      <nav className="mx-auto flex max-w-[1640px] items-center justify-between px-5 py-8 md:px-10">
+        <a href="#" className="flex items-center gap-3" aria-label="FloraVision home">
+          <Image
+            src={asset("logo-plant.png")}
+            alt=""
+            width={48}
+            height={48}
+            className="drop-shadow-2xl"
+          />
+          <span className="text-xl font-black text-white/80 md:text-3xl">FloraVision.</span>
+        </a>
+
+        <div className="hidden items-center gap-12 text-xl text-white md:flex">
+          {navItems.map((item) => (
+            <a key={item} href="#" className="transition hover:text-white/70">
+              {item}
+            </a>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-6">
+          <button type="button" aria-label="Search" className="hidden md:block">
+            <Image src={asset("search.png")} alt="" width={26} height={26} />
+          </button>
+          <button type="button" aria-label="Cart" className="hidden md:block">
+            <Image src={asset("bag.png")} alt="" width={26} height={26} />
+          </button>
+          <button type="button" aria-label="Menu" className="space-y-2">
+            <span className="block h-0.5 w-8 bg-white" />
+            <span className="ml-2 block h-0.5 w-6 bg-white" />
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+}
