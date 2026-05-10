@@ -1,5 +1,11 @@
 import Image from "next/image";
+import { Amatic_SC } from "next/font/google";
 import { asset, navItems } from "../data";
+
+const amatic = Amatic_SC({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export function Navbar() {
   return (
@@ -16,7 +22,9 @@ export function Navbar() {
           <span className="text-xl font-black text-white/80 md:text-3xl">FloraVision.</span>
         </a>
 
-        <div className="hidden items-center gap-12 text-xl text-white md:flex">
+        <div
+          className={`${amatic.className} hidden items-center gap-12 text-2xl font-bold text-white md:flex`}
+        >
           {navItems.map((item) => (
             <a key={item} href="#" className="transition hover:text-white/70">
               {item}
@@ -24,7 +32,7 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className={`${amatic.className} flex items-center gap-6`}>
           <button type="button" aria-label="Search" className="hidden md:block">
             <Image src={asset("search.png")} alt="" width={26} height={26} />
           </button>
